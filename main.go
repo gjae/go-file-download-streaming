@@ -56,7 +56,7 @@ func RegisterHandlers(muxServer *server.MuxServer) {
 	// Includes progress logging to track download status in real-time
 	muxServer.HandlerFunc("/download/limited/{filename}", func(w http.ResponseWriter, r *http.Request) {
 		filename := mux.Vars(r)["filename"]
-		buffer := make([]byte, 200*1024) // 512KB buffer for controlled chunk size
+		buffer := make([]byte, 100*1024) // 100KB buffer for controlled chunk size
 		filePath := "downloads" + "/" + filename
 		var totalDownloaded int64 // Tracks total bytes sent for progress reporting
 
