@@ -135,7 +135,7 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 
 	hostFlag = "0.0.0.0"
-	portFlag = "8081"
+	portFlag = "8080"
 	flag.StringVar(&hostFlag, "host", hostFlag, "Indica el host del servidor")
 	flag.StringVar(&portFlag, "port", portFlag, "Indica el puerto del servidor")
 	flag.Parse()
