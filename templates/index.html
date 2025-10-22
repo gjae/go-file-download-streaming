@@ -1,15 +1,32 @@
+<!-- En templates/index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Download management</title>
+    <title>Download Speed Test</title>
 </head>
 <body>
+    <h1>Comparación de Velocidades de Descarga</h1>
     
-    <h1>Hello world</h1>
-    <a href="http://{{.host}}:{{.Port}}/download/{{.filename}}">
-        Descargar
-    </a>
+    <div>
+        <h3>Descarga Normal (máxima velocidad):</h3>
+        <a href="/download/{{.filename}}">Descargar {{.filename}}</a>
+        <p><em>Usa io.Copy - velocidad máxima</em></p>
+    </div>
+    
+    <div>
+        <h3>Descarga Limitada (200 KB/s):</h3>
+        <a href="/download/limited/{{.filename}}">Descargar {{.filename}} limitada</a>
+        <p><em>Buffer de 200KB + delay de 1s = ~200KB/s</em></p>
+    </div>
+    
+    <div>
+        <h3>Estadísticas:</h3>
+        <ul>
+            <li>Archivo: {{.filename}}</li>
+            <li>Tamaño: ~263KB (nature image)</li>
+            <li>Tiempo estimado descarga limitada: ~3 segundos</li>
+            <li>Tiempo estimado descarga normal: ~1-2 segundos</li>
+        </ul>
+    </div>
 </body>
 </html>
